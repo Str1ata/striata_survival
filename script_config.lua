@@ -2,12 +2,7 @@ table.insert(Config.scriptsConfig, {
 
     survivalConfig = {
 
-        baseType = "zirix", -- zirix, creative
-
         progressBarEvent = "progress", -- Evento de progresso
-
-        identityFristNameDB = "name", -- primeiro nome do player que fica no banco de dados.
-        identityLastNameDB = "firstname", -- ultimo nome do player que fica no banco de dados.
 
         docs = "docs/survival/",  -- Local onde as imagens, sons, gifs, etc... estão localizados
     --{ Survival 
@@ -41,7 +36,8 @@ table.insert(Config.scriptsConfig, {
 
         deathAnimation = { animDictionary = "misslamar1dead_body" , animationName = "dead_idle" },  -- Animação de morte.
 
-        deathTimerDefalt = 600,  -- Tempo padrão para renascer.
+        deathTimerDefalt = 600,  -- Tempo padrão para renascer (segundos).
+        deathBlackEffect = true,  -- Defina como (true) ativar um efeito preto ao desmaiar.
         giveUpButtonName = "Seguir a luz...",  -- Texto do botão de desistir
         allowAllGiveUp = true,  -- Defina como (true) para permitir desistencia para todos e (false) para desativar.
         PermissionsToGiveUp = {"suporte.permissao","admin.permissao","paramedico.permissao"},  -- defina as permissões que podem desistir.
@@ -53,7 +49,7 @@ table.insert(Config.scriptsConfig, {
             { name = "🧯Corpo-de-Bombeiros", coords = {x = 1208.03, y = -1472.74, z = 34.86}, permission = { "admin.permissao","bombeiro.permissao" } },
             { name = "🚈Metrô", coords = {x = -206.66, y = -1014.92, z = 30.14}, permission = { "" } },
         },
-        deathTimerByPermissions = {  -- Defina tempos customizado por permissão para renascer.
+        deathTimerByPermissions = {  -- Defina tempos customizado por permissão para renascer (segundos).
             { perm = "admin.permissao", timer = 10 },
             { perm = "policia.permissao", timer = 300 },
             { perm = "paramedico.permissao", timer = 300 },
@@ -68,12 +64,17 @@ table.insert(Config.scriptsConfig, {
         webhookReanimation = "",  -- Log webhook com informações de reanimações.
 
         patientBloodMilliliters = 5000,  -- Quantidade de sangue em mililitros no corpo.
-        timeToZeroMilliliters = 600,  -- Tempo desmaiado para chegar a zero mililitros de sangue.
+        timeToZeroMilliliters = 600,  -- Tempo desmaiado para chegar a zero mililitros de sangue (segundos).
         permissionsToDiagnostic = {"admin.permissao","paramedico.permissao","bombeiro.permissao","policia.permissao"},  -- Defina as permissões que terão acesso ao comando de diagnostico.
+        diagnosticNotifyTime = 20000,  -- Tempo do notify de diagnostico (milisegundos).
         permissionsToRevive = {"admin.permissao","paramedico.permissao","bombeiro.permissao"},  -- Defina as permissões que terão acesso ao comando de reanimação.
         maxAttemptsToRevive = 3,  -- Maximo de tentativas de reanimação.
         reanimationAmins = { animDictionary = "amb@medic@standing@tendtodead@base" , animationName = "base", animDictionary2 = "mini@cpr@char_a@cpr_str" , animationName2 = "cpr_pumpchest" },  -- Animações de reanimação.
-        reanimationAmins2 = { animDictionary = "anim@gangops@facility@servers@bodysearch@" , animationName = "player_search"},  -- Animações de reanimação quando em maca.
+        reanimationAmins2 = { animDictionary = "anim@mp_player_intincarshushbodhi@ds@" , animationName = "idle_a_fp"},  -- Animações de reanimação quando em maca. OBS: animação somente para as pernas.
+        TweezersAmins = { animDictionary = "mini@repair" , animationName = "fixing_a_ped"},  -- Animações do item Pinca.
+        SutureKitAmins = { animDictionary = "mini@repair" , animationName = "fixing_a_ped"},  -- Animações do item Sutura.
+        BurnCreamAmins = { animDictionary = "mini@repair" , animationName = "fixing_a_ped"},  -- Animações do item Creme para queimaduras.
+        woundsTratamentTime = 7000,  -- Tempo para tratar ferimentos expostos (milisegundos).
         milisecForReanimation = 30000,  -- Tempo em milissegundos para reanimar um indivíduo.
         PaymentForRevive = math.random(2500,3000),  -- Pagamento do medico por reanimar um indivíduo com sucesso. (Defina 0 para desativar!)
         pacientHealthAfterRevive = 110,  -- Vida do paciente após ser reanimado.
@@ -108,12 +109,19 @@ table.insert(Config.scriptsConfig, {
             },
         },
 
-        targetMode = true,
-        nhContext = false,
-        needDefib = true,
+        targetMode = true,  -- ative as opções do script target na bolsa medica, caso desabilitado um thread será criado para acessar aperdando uma tecla.
+        nhContext = false,  -- ative opções do script nhContext na bolsa medica.
+        needDefib = true,  -- caso desativado não sera necessario desfibrilador para reanimar.
         permissionsToPickAndUseItens = {"admin.permissao","paramedico.permissao","bombeiro.permissao"},  -- Defina as permissões que terão aos itens da bolsa medica.
 
-        vehiclesConfig = {
+        keycapDropBag = 20,  -- Defina a para soltar a bolsa! Padrão: {(20) Tecla [Z]}.
+        keycapOpenBag = 38,  -- Defina a para abrir a bolsa! Padrão: {(38) Tecla [E]}.
+        keycapPickBag = 303,  -- Defina a para pegar a bolsa na mão! Padrão: {(303) Tecla [U]}.
+        keycapStoreBag = 246,  -- Defina a para guardar a bolsa! Padrão: {(246) Tecla [Y]}.
+
+        keycapDropStretcher = 20,  -- Defina a para soltar a maca! Padrão: {(20) Tecla [Z]}.
+        keycapStoreStretcher = 38,  -- Defina a para guardar a maca! Padrão: {(38) Tecla [E]}.
+        vehiclesConfig = {  -- Configure aqui as ambulancias que você quer ver o player deitado dentro.
             [GetHashKey("Bmsprinter")] = { ajustX = -0.3, ajustY = -2.0, ajustZ = -0.15, rotateX = 0.0, rotateY = 0.0, rotateZ = 0.0, dict = "anim@gangops@morgue@table@", anim = "body_search" },
         },
     --}
@@ -149,10 +157,10 @@ table.insert(Config.scriptsConfig, {
             --todo | class = clase da arma ultilizada para identificar o estado das feridas pós morte. 
             
             --! clases:
-            --? ("hands","pasive granades","vechicles") quando não há ferimentos expostos;
-            --? ("blades") quando há cortes;
-            --? ("granades","fire granades","explosives","flammable") quando há queimaduras;
-            --? ("weapons") quando há balas no corpo.
+            --? {"hands","pasive granades","vechicles"}                    Quando não há ferimentos expostos;
+            --? {"blades"}                                                 Quando há cortes;
+            --? {"granades","fire granades","explosives","flammable"}      Quando há queimaduras;
+            --? {"weapons"}                                                Quando há balas no corpo.
 
             -- Hands
             { weapon = "WEAPON_UNARMED", damage = 0.5, customName = "Mãos" ,class = "hands"},
@@ -326,7 +334,7 @@ table.insert(Config.scriptsConfig, {
             reanimate = "reanimar",
             getStretcher = "pegarmaca",
             putOnStretcher = "colocarnamaca",
-            putOnVehicle = "colocarnoveiculo",
+            putOnVehicle = "colocarnoveiculo"
         },
 
         itens = {
@@ -337,7 +345,11 @@ table.insert(Config.scriptsConfig, {
             itemDefib = "desfibrilador",
             itemStretcher = "maca",
             itemBulletMashed = "balaamassada",
-            itemShroud = "mortalha",
+            itemShroud = "mortalha"
+        },
+
+        prompt = {
+            selectOption = "Digite o número da opção que deseja:"
         },
 
         diagnostic = {
@@ -368,7 +380,7 @@ table.insert(Config.scriptsConfig, {
             upperThoracicSpine = "Espinha Torácica Superior",
             lowerThoracicSpine = "Espinha Torácica Inferior",
             lumbarSpine = "Espinha Lombar",
-            pelvis = "Pelve",
+            pelvis = "Pelve"
         },
 
         nhContextOptions = {
@@ -383,7 +395,7 @@ table.insert(Config.scriptsConfig, {
             getFoldingSTretcher = ": Pegar Maca Dobrável",
             getFoldingSTretcherDescription = ": Pegar Maca Dobrável",
             getShroud = ": Pegar Mortalha",
-            getShroudDescription = ": Pegar Mortalha",
+            getShroudDescription = ": Pegar Mortalha"
         },
 
         targetLabelOptions = {
@@ -396,14 +408,14 @@ table.insert(Config.scriptsConfig, {
             getDefib = ": Pegar Desfibrilador",
             getFoldingSTretcher = ": Pegar Maca Dobrável",
             getShroud = ": Pegar Mortalha",
-            closePurse = ": Fechar bolsa",
+            closePurse = ": Fechar bolsa"
         },
 
         killLog = {
             id = "(ID):",
             suicide = "(COMETEU SUICIDIO)",
             killedId = "(MATOU O ID):",
-            killed = "(MATOU):",
+            killed = "(MATOU):"
         },
 
         killLogWebhook = {
@@ -416,7 +428,7 @@ table.insert(Config.scriptsConfig, {
             cdsVictim = "[Coordenada da vítima]:",
             cdsKiller = "[Coordenada do assassino]:",
             date = "[Data]:",
-            hours = "[Hora]:",
+            hours = "[Hora]:"
         },
 
         notifys = {
@@ -428,6 +440,7 @@ table.insert(Config.scriptsConfig, {
             paymentII = "</b> por salvar a vida do cidadão!",
             isDead = "O coração deste cidadão está sem pulsação 🖤, você não consegue mais reanimar ele!",
             imDead = "Seu coração está sem pulsação!🖤",
+            externalWounds = "Você deve tratar os ferimentos expostos do paciente primeiro!",
             IsAlive = "O cidadão mais próximo de você está bem, tente em um cidadão desmaiado!",
             notFoundNear = "Não há nenhum cidadão próximo a você!",
             noItem = "Você não possui um(a):",
@@ -441,11 +454,12 @@ table.insert(Config.scriptsConfig, {
             removeBullet = "Bala removida.",
             sewnCut = "corte costurado.",
             applyCream = "creme aplicado.",
-            shrouded = "o corpo foi ensacado.",
+            shrouded = "o corpo foi ensacado."
         },
 
         progressBar = {
             reanimation = "Reanimando o cidadão",
+            tratamentWounds = "Tratando feridas"
         },
 
         reanimationWebhook = {
@@ -459,8 +473,13 @@ table.insert(Config.scriptsConfig, {
             withPulse = "Com pulso ❤️",
             pulseless = "Sem Pulso 🖤",
             date = "[Data]:",
-            hours = "[Hora]:",
+            hours = "[Hora]:"
         },
+
+        text3d = {
+            bagInHands = "~b~[E]~w~ Para abrir a bolsa\n~b~[Z]~w~ Para soltar a bolsa\n~b~[Y]~w~ Para guardar a bolsa",
+            bagInGroud = "~b~[E]~w~ Para abrir a bolsa\n~b~[U]~w~ Para pegar a bolsa\n~b~[Y]~w~ Para guardar a bolsa"
+        }
     },
 
     survivalLanguageENUS = {  -- You can change the script texts here!
@@ -469,7 +488,7 @@ table.insert(Config.scriptsConfig, {
             reanimate = "reanimate",
             getStretcher = "getstretcher",
             putOnStretcher = "putonstretcher",
-            putOnVehicle = "putonvehicle",
+            putOnVehicle = "putonvehicle"
         },
 
         itens = {
@@ -480,7 +499,11 @@ table.insert(Config.scriptsConfig, {
             itemDefib = "defibrillator",
             itemStretcher = "stretcher",
             itemBulletMashed = "bullet mashed",
-            itemShroud = "shroud",
+            itemShroud = "shroud"
+        },
+
+        prompt = {
+            selectOption = "Enter the option number you want:"
         },
 
         diagnostic = {
@@ -511,7 +534,7 @@ table.insert(Config.scriptsConfig, {
             upperThoracicSpine = "upperThoracicSpine",
             lowerThoracicSpine = "lowerThoracicSpine",
             lumbarSpine = "lumbarSpine",
-            pelvis = "pelvis",
+            pelvis = "pelvis"
         },
 
         targetLabelOptions = {
@@ -524,14 +547,14 @@ table.insert(Config.scriptsConfig, {
             getDefib = ": Get Defibrillator",
             getFoldingSTretcher = ": Get Folding Stretcher",
             getShroud = ": Get Shroud",
-            closePurse = ": Close purse",
+            closePurse = ": Close purse"
         },
 
         killLog = {
             id = "(ID):",
             suicide = "(COMMITTED SUICIDE)",
             killedId = "(KILLED THE ID):",
-            killed = "(KILLED):",
+            killed = "(KILLED):"
         },
 
         killLogWebhook = {
@@ -544,7 +567,7 @@ table.insert(Config.scriptsConfig, {
             cdsVictim = "[Victim's Coordinate]:",
             cdsKiller = "[assassin's coordinate]:",
             date = "[Date]:",
-            hours = "[Hours]:",
+            hours = "[Hours]:"
         },
 
         notifys = {
@@ -556,6 +579,7 @@ table.insert(Config.scriptsConfig, {
             paymentII = "</b> for saving the life of the citizen!",
             isDead = "This citizen's heart is without a pulse 🖤, você não consegue mais reanimar ele!",
             imDead = "Your heart has no pulse!🖤",
+            externalWounds = "You must treat the patient's exposed wounds first!",
             IsAlive = "The citizen closest to you is fine, try it on a fainted citizen!",
             notFoundNear = "There is no citizen next to you!",
             noItem = "You don't have one(a):",
@@ -569,18 +593,19 @@ table.insert(Config.scriptsConfig, {
             removeBullet = "Bullet removed.",
             sewnCut = "sewn cut.",
             applyCream = "applied cream.",
-            shrouded = "the body was shrouded.",
+            shrouded = "the body was shrouded."
         },
 
         notifysTypes = {
             success = "success",
             denied = "denied",
             warning = "warning",
-            important = "important",
+            important = "important"
         },
 
         progressBar = {
             reanimation = "Reanimating the citizen",
+            tratamentWounds = "treating wounds"
         },
 
         reanimationWebhook = {
@@ -594,8 +619,13 @@ table.insert(Config.scriptsConfig, {
             withPulse = "with pulse ❤️",
             pulseless = "no pulse 🖤",
             date = "[Data]:",
-            hours = "[Hour]:",
+            hours = "[Hour]:"
         },
+
+        text3d = {
+            bagInHands = "~b~[E]~w~ To open the bag\n~b~[Z]~w~ To drop the bag\n~b~[Y]~w~ To store the bag",
+            bagInGroud = "~b~[E]~w~ To open the bag\n~b~[U]~w~ To get the bag\n~b~[Y]~w~ To store the bag"
+        }
     }
 --}
 })
