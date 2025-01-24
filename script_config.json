@@ -204,7 +204,7 @@
             }
         ],
         "enableDiagnostic": true,
-        "webhookReanimation": "https://discord.com/api/webhooks/1106366884565233704/9rUTf_mceYAxcdfIPXirbscEuJqFtl9TM_8m8FaVWX4z8wGA1ahi92QeuakrhufpLtLG",
+        "webhookReanimation": "",
         "patientBloodMilliliters": 5000,
         "timeToZeroMilliliters": 600,
         "permissionsToDiagnostic": [
@@ -331,7 +331,7 @@
             }
         },
         "enableKillLog": true,
-        "webhookKillLog": "https://discord.com/api/webhooks/1106367042942148619/LrO0nAbkmZcyyfPkMAXUm4hnT47nu0sUv1fLaQzWZq2n9PvyhTGWjlq9H7_nEL2VOzgE",
+        "webhookKillLog": "",
         "enableHitMarkSound": true,
         "hitMarkSoundVolume": 1.0,
         "enableFatalHitHead": true,
