@@ -19,9 +19,97 @@
         ],
         "lifeMinimum": 101,
         "lifeLimit": 200,
-        "deathAnimation": {
-            "animDictionary": "misslamar1dead_body",
-            "animationName": "dead_idle"
+        "animations": {
+            "fivem": {
+                "deathAnimation": {
+                    "animDictionary": "misslamar1dead_body",
+                    "animationName": "dead_idle"
+                },
+                "reanimationAmins": {
+                    "animDictionary": "amb@medic@standing@tendtodead@base",
+                    "animationName": "base",
+                    "animDictionary2": "mini@cpr@char_a@cpr_str",
+                    "animationName2": "cpr_pumpchest"
+                },
+                "reanimationAmins2": {
+                    "animDictionary": "anim@mp_player_intincarshushbodhi@ds@",
+                    "animationName": "idle_a_fp"
+                },
+                "reanimationAminsPatient": {
+                    "animDictionary": "mini@cpr@char_b@cpr_str",
+                    "animationName": "cpr_pumpchest",
+                    "delay": 3.0
+                },
+                "TweezersAmins": {
+                    "animDictionary": "mini@repair",
+                    "animationName": "fixing_a_ped"
+                },
+                "TweezersAmins2": {
+                    "animDictionary": "amb@medic@standing@kneel@idle_a",
+                    "animationName": "idle_a"
+                },
+                "SutureKitAmins": {
+                    "animDictionary": "mini@repair",
+                    "animationName": "fixing_a_ped"
+                },
+                "SutureKitAmins2": {
+                    "animDictionary": "amb@medic@standing@kneel@idle_a",
+                    "animationName": "idle_a"
+                },
+                "BurnCreamAmins": {
+                    "animDictionary": "mini@repair",
+                    "animationName": "fixing_a_ped"
+                },
+                "BurnCreamAmins2": {
+                    "animDictionary": "amb@medic@standing@kneel@idle_a",
+                    "animationName": "idle_a"
+                }
+            },
+            "redm": {
+                "deathAnimation": {
+                    "animDictionary": "ai_damage@dead@base",
+                    "animationName": "dead_c"
+                },
+                "reanimationAmins": {
+                    "animDictionary": "amb_camp@world_camp_fire_crouch@tend@male_a@base",
+                    "animationName": "base",
+                    "animDictionary2": "mech_revive@unapproved",
+                    "animationName2": "revive"
+                },
+                "reanimationAmins2": {
+                    "animDictionary": "ai_combat@aim_sweeps@cowboy@injured_l_leg@base@1h",
+                    "animationName": "aim_med_0_intro"
+                },
+                "reanimationAminsPatient": {
+                    "animDictionary": "ai_damage@dead@base",
+                    "animationName": "dead_a",
+                    "delay": 3.0
+                },
+                "TweezersAmins": {
+                    "animDictionary": "script_re@item_recovery@strawberry",
+                    "animationName": "distract_enter_doctor"
+                },
+                "TweezersAmins2": {
+                    "animDictionary": "amb_camp@world_camp_fire_crouch@tend@male_a@base",
+                    "animationName": "base"
+                },
+                "SutureKitAmins": {
+                    "animDictionary": "script_re@item_recovery@strawberry",
+                    "animationName": "distract_enter_docto"
+                },
+                "SutureKitAmins2": {
+                    "animDictionary": "amb_camp@world_camp_fire_crouch@tend@male_a@base",
+                    "animationName": "base"
+                },
+                "BurnCreamAmins": {
+                    "animDictionary": "script_re@item_recovery@strawberry",
+                    "animationName": "distract_enter_docto"
+                },
+                "BurnCreamAmins2": {
+                    "animDictionary": "amb_camp@world_camp_fire_crouch@tend@male_a@base",
+                    "animationName": "base"
+                }
+            }
         },
         "deathTimerDefalt": 600,
         "deathBlackEffect": true,
@@ -33,39 +121,66 @@
             "paramedico.permissao"
         ],
         "resurectButtonName": "Renascer",
-        "spawnLocates": [
-            {
-                "name": "🛬Aeroporto",
-                "coords": [-1041.04,-2743.49,13.95],
-                "permission": []
-            },
-            {
-                "name": "🏥Hospital",
-                "coords": [-261.7,6308.28,32.48],
-                "permission": []
-            },
-            {
-                "name": "🚨Departamento-Policial",
-                "coords": [-1092.96,-809.76,19.27],
-                "permission": [
-                    "admin.permissao",
-                    "policia.permissao"
-                ]
-            },
-            {
-                "name": "🧯Corpo-de-Bombeiros",
-                "coords": [1208.03,-1472.74,34.86],
-                "permission": [
-                    "admin.permissao",
-                    "bombeiro.permissao"
-                ]
-            },
-            {
-                "name": "🚈Metrô",
-                "coords": [-206.66,-1014.92,30.14],
-                "permission": []
-            }
-        ],
+        "spawnLocates":{
+            "fivem": [
+                {
+                    "name": "🛬Aeroporto",
+                    "coords": [-1041.04,-2743.49,13.95],
+                    "permission": []
+                },
+                {
+                    "name": "🏥Hospital",
+                    "coords": [-261.7,6308.28,32.48],
+                    "permission": []
+                },
+                {
+                    "name": "🚨Departamento-Policial",
+                    "coords": [-1092.96,-809.76,19.27],
+                    "permission": [
+                        "admin.permissao",
+                        "policia.permissao"
+                    ]
+                },
+                {
+                    "name": "🧯Corpo-de-Bombeiros",
+                    "coords": [1208.03,-1472.74,34.86],
+                    "permission": [
+                        "admin.permissao",
+                        "bombeiro.permissao"
+                    ]
+                },
+                {
+                    "name": "🚈Metrô",
+                    "coords": [-206.66,-1014.92,30.14],
+                    "permission": []
+                }
+            ],
+            "redm": [
+                {
+                    "name": "🐎Valentine",
+                    "coords": [-164.94, 631.28, 114.03],
+                    "permission": []
+                },
+                {
+                    "name": "🏥Hospital de Valentine",
+                    "coords": [-282.12, 811.90, 119.35],
+                    "permission": []
+                },
+                {
+                    "name": "🏥Hospital de Saint Denise",
+                    "coords": [2730.83, -1230.55, 50.35],
+                    "permission": []
+                },
+                {
+                    "name": "🚨Cavalaria de Valentine",
+                    "coords": [-278.75, 809.64, 119.38],
+                    "permission": [
+                        "admin",
+                        "police"
+                    ]
+                }
+            ]
+        },
         "deathTimerByPermissions": [
             {
                 "perm": "admin.permissao",
@@ -89,7 +204,7 @@
             }
         ],
         "enableDiagnostic": true,
-        "webhookReanimation": "",
+        "webhookReanimation": "https://discord.com/api/webhooks/1106366884565233704/9rUTf_mceYAxcdfIPXirbscEuJqFtl9TM_8m8FaVWX4z8wGA1ahi92QeuakrhufpLtLG",
         "patientBloodMilliliters": 5000,
         "timeToZeroMilliliters": 600,
         "permissionsToDiagnostic": [
@@ -175,30 +290,48 @@
                 "DiagnosticMensage": "morto (sem sangue)"
             }
         },
-        "targetMode": true,
+        "targetMode": false,
         "nhContext": false,
-        "needDefib": true,
+        "needDefib": false,
         "permissionsToPickAndUseItens": [
             "admin.permissao",
             "paramedico.permissao",
             "bombeiro.permissao"
         ],
-        "keycapDropBag": 20,
-        "keycapOpenBag": 38,
-        "keycapPickBag": 303,
-        "keycapStoreBag": 246,
-        "keycapDropStretcher": 20,
-        "keycapStoreStretcher": 38,
+        "controlKeys": {
+            "fivem": {
+                "keycapDropBag": 20,
+                "keycapOpenBag": 38,
+                "keycapPickBag": 303,
+                "keycapStoreBag": 246,
+                "keycapDropStretcher": 20,
+                "keycapStoreStretcher": 38
+            },
+            "redm": {
+                "keycapDropBag": "INPUT_GAME_MENU_TAB_LEFT_SECONDARY",
+                "keycapOpenBag": "INPUT_INTERACT_OPTION1",
+                "keycapPickBag": "INPUT_GAME_MENU_UP",
+                "keycapStoreBag": "INPUT_GAME_MENU_DOWN",
+                "keycapDropStretcher": "INPUT_GAME_MENU_TAB_LEFT_SECONDARY",
+                "keycapStoreStretcher": "INPUT_INTERACT_OPTION1"
+            }
+        },
         "vehiclesConfig": {
             "Bmsprinter": {
                 "ajust": [-0.3,-2.0,-0.15],
                 "rotate": [0.0,0.0,0.0],
                 "dict": "anim@gangops@morgue@table@",
                 "anim": "body_search"
+            },
+            "wagonWork01x": {
+                "ajust": [-0.4,0.0,0.9],
+                "rotate": [0.0,0.0,180.0],
+                "dict": "ai_damage@dead@base",
+                "anim": "dead_e"
             }
         },
         "enableKillLog": true,
-        "webhookKillLog": "",
+        "webhookKillLog": "https://discord.com/api/webhooks/1106367042942148619/LrO0nAbkmZcyyfPkMAXUm4hnT47nu0sUv1fLaQzWZq2n9PvyhTGWjlq9H7_nEL2VOzgE",
         "enableHitMarkSound": true,
         "hitMarkSoundVolume": 1.0,
         "enableFatalHitHead": true,
@@ -1028,6 +1161,338 @@
                 "customName": "Puma",
                 "class": "hands"
             },
+
+            "WEAPON_BOW": {
+                "hashName": "WEAPON_BOW",
+                "damage": 1.0,
+                "customName": "Arco",
+                "class": "blades"
+            },
+            "WEAPON_BOW_IMPROVED": {
+                "hashName": "WEAPON_BOW_IMPROVED",
+                "damage": 1.0,
+                "customName": "Arco Melhorado",
+                "class": "blades"
+            },
+            "WEAPON_FISHINGROD": {
+                "hashName": "WEAPON_FISHINGROD",
+                "damage": 1.0,
+                "customName": "Vara de Pesca",
+                "class": "hands"
+            },
+            "WEAPON_KIT_BINOCULARS": {
+                "hashName": "WEAPON_KIT_BINOCULARS",
+                "damage": 1.0,
+                "customName": "Binóculos",
+                "class": "hands"
+            },
+            "WEAPON_KIT_BINOCULARS_IMPROVED": {
+                "hashName": "WEAPON_KIT_BINOCULARS_IMPROVED",
+                "damage": 1.0,
+                "customName": "Binóculos Melhorados",
+                "class": "hands"
+            },
+            "WEAPON_KIT_CAMERA": {
+                "hashName": "WEAPON_KIT_CAMERA",
+                "damage": 1.0,
+                "customName": "Câmera",
+                "class": "hands"
+            },
+            "WEAPON_KIT_METAL_DETECTOR": {
+                "hashName": "WEAPON_KIT_METAL_DETECTOR",
+                "damage": 1.0,
+                "customName": "Detector de Metais",
+                "class": "hands"
+            },
+            "WEAPON_LASSO": {
+                "hashName": "WEAPON_LASSO",
+                "damage": 1.0,
+                "customName": "Laço",
+                "class": "hands"
+            },
+            "WEAPON_LASSO_REINFORCED": {
+                "hashName": "WEAPON_LASSO_REINFORCED",
+                "damage": 1.0,
+                "customName": "Laço Reforçado",
+                "class": "hands"
+            },
+            "WEAPON_MELEE_CLEAVER": {
+                "hashName": "WEAPON_MELEE_CLEAVER",
+                "damage": 1.0,
+                "customName": "Cutelo",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_DAVY_LANTERN": {
+                "hashName": "WEAPON_MELEE_DAVY_LANTERN",
+                "damage": 1.0,
+                "customName": "Lampião Escovado",
+                "class": "flammable"
+            },
+            "WEAPON_MELEE_HAMMER": {
+                "hashName": "WEAPON_MELEE_HAMMER",
+                "damage": 1.0,
+                "customName": "Martelo",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_HATCHET": {
+                "hashName": "WEAPON_MELEE_HATCHET",
+                "damage": 1.0,
+                "customName": "Machadinha",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_HATCHET_HUNTER": {
+                "hashName": "WEAPON_MELEE_HATCHET_HUNTER",
+                "damage": 1.0,
+                "customName": "Machadinha de Caçador",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_KNIFE": {
+                "hashName": "WEAPON_MELEE_KNIFE",
+                "damage": 1.0,
+                "customName": "Faca",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_KNIFE_JAWBONE": {
+                "hashName": "WEAPON_MELEE_KNIFE_JAWBONE",
+                "damage": 1.0,
+                "customName": "Faca de Mandíbula",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_KNIFE_TRADER": {
+                "hashName": "WEAPON_MELEE_KNIFE_TRADER",
+                "damage": 1.0,
+                "customName": "Faca do Comerciante",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_LANTERN": {
+                "hashName": "WEAPON_MELEE_LANTERN",
+                "damage": 1.0,
+                "customName": "Lampião",
+                "class": "flammable"
+            },
+            "WEAPON_MELEE_MACHETE": {
+                "hashName": "WEAPON_MELEE_MACHETE",
+                "damage": 1.0,
+                "customName": "Facão",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_MACHETE_COLLECTOR": {
+                "hashName": "WEAPON_MELEE_MACHETE_COLLECTOR",
+                "damage": 1.0,
+                "customName": "Facão do Colecionador",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_MACHETE_HORROR": {
+                "hashName": "WEAPON_MELEE_MACHETE_HORROR",
+                "damage": 1.0,
+                "customName": "Facão Canibal",
+                "class": "blades"
+            },
+            "WEAPON_MELEE_TORCH": {
+                "hashName": "WEAPON_MELEE_TORCH",
+                "damage": 1.0,
+                "customName": "Tocha",
+                "class": "flammable"
+            },
+            "WEAPON_MOONSHINEJUG_MP": {
+                "hashName": "WEAPON_MOONSHINEJUG_MP",
+                "damage": 1.0,
+                "customName": "Jarra de Moonshine",
+                "class": "flammable"
+            },
+            "WEAPON_PISTOL_M1899": {
+                "hashName": "WEAPON_PISTOL_M1899",
+                "damage": 1.0,
+                "customName": "Pistola M1899",
+                "class": "weapons"
+            },
+            "WEAPON_PISTOL_MAUSER": {
+                "hashName": "WEAPON_PISTOL_MAUSER",
+                "damage": 1.0,
+                "customName": "Pistola Mauser",
+                "class": "weapons"
+            },
+            "WEAPON_PISTOL_SEMIAUTO": {
+                "hashName": "WEAPON_PISTOL_SEMIAUTO",
+                "damage": 1.0,
+                "customName": "Pistola Semiautomática",
+                "class": "weapons"
+            },
+            "WEAPON_PISTOL_VOLCANIC": {
+                "hashName": "WEAPON_PISTOL_VOLCANIC",
+                "damage": 1.0,
+                "customName": "Pistola Volcanic",
+                "class": "weapons"
+            },
+            "WEAPON_REPEATER_CARBINE": {
+                "hashName": "WEAPON_REPEATER_CARBINE",
+                "damage": 1.0,
+                "customName": "Carabina Repetidora",
+                "class": "weapons"
+            },
+            "WEAPON_REPEATER_EVANS": {
+                "hashName": "WEAPON_REPEATER_EVANS",
+                "damage": 1.0,
+                "customName": "Repetidora Evans",
+                "class": "weapons"
+            },
+            "WEAPON_REPEATER_HENRY": {
+                "hashName": "WEAPON_REPEATER_HENRY",
+                "damage": 1.0,
+                "customName": "Repetidora Henry",
+                "class": "weapons"
+            },
+            "WEAPON_REPEATER_WINCHESTER": {
+                "hashName": "WEAPON_REPEATER_WINCHESTER",
+                "damage": 1.0,
+                "customName": "Repetidora Winchester",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_CATTLEMAN": {
+                "hashName": "WEAPON_REVOLVER_CATTLEMAN",
+                "damage": 1.0,
+                "customName": "Revólver Cattleman",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_CATTLEMAN_MEXICAN": {
+                "hashName": "WEAPON_REVOLVER_CATTLEMAN_MEXICAN",
+                "damage": 1.0,
+                "customName": "Revólver Cattleman Mexicano",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_DOUBLEACTION": {
+                "hashName": "WEAPON_REVOLVER_DOUBLEACTION",
+                "damage": 1.0,
+                "customName": "Revólver de Dupla Ação",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_DOUBLEACTION_GAMBLER": {
+                "hashName": "WEAPON_REVOLVER_DOUBLEACTION_GAMBLER",
+                "damage": 1.0,
+                "customName": "Revólver de Dupla Ação do Apostador",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_LEMAT": {
+                "hashName": "WEAPON_REVOLVER_LEMAT",
+                "damage": 1.0,
+                "customName": "Revólver LeMat",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_NAVY": {
+                "hashName": "WEAPON_REVOLVER_NAVY",
+                "damage": 1.0,
+                "customName": "Revólver Navy",
+                "class": "weapons"
+            },
+            "WEAPON_REVOLVER_SCHOFIELD": {
+                "hashName": "WEAPON_REVOLVER_SCHOFIELD",
+                "damage": 1.0,
+                "customName": "Revólver Schofield",
+                "class": "weapons"
+            },
+            "WEAPON_RIFLE_BOLTACTION": {
+                "hashName": "WEAPON_RIFLE_BOLTACTION",
+                "damage": 1.0,
+                "customName": "Rifle Ferrolho",
+                "class": "weapons"
+            },
+            "WEAPON_RIFLE_ELEPHANT": {
+                "hashName": "WEAPON_RIFLE_ELEPHANT",
+                "damage": 1.0,
+                "customName": "Rifle de Elefante",
+                "class": "weapons"
+            },
+            "WEAPON_RIFLE_SPRINGFIELD": {
+                "hashName": "WEAPON_RIFLE_SPRINGFIELD",
+                "damage": 1.0,
+                "customName": "Rifle Springfield",
+                "class": "weapons"
+            },
+            "WEAPON_RIFLE_VARMINT": {
+                "hashName": "WEAPON_RIFLE_VARMINT",
+                "damage": 1.0,
+                "customName": "Rifle Varmint",
+                "class": "weapons"
+            },
+            "WEAPON_SHOTGUN_DOUBLEBARREL": {
+                "hashName": "WEAPON_SHOTGUN_DOUBLEBARREL",
+                "damage": 1.0,
+                "customName": "Escopeta de Cano Duplo",
+                "class": "weapons"
+            },
+            "WEAPON_SHOTGUN_PUMP": {
+                "hashName": "WEAPON_SHOTGUN_PUMP",
+                "damage": 1.0,
+                "customName": "Escopeta Pump",
+                "class": "weapons"
+            },
+            "WEAPON_SHOTGUN_REPEATING": {
+                "hashName": "WEAPON_SHOTGUN_REPEATING",
+                "damage": 1.0,
+                "customName": "Escopeta Repetidora",
+                "class": "weapons"
+            },
+            "WEAPON_SHOTGUN_SAWEDOFF": {
+                "hashName": "WEAPON_SHOTGUN_SAWEDOFF",
+                "damage": 1.0,
+                "customName": "Escopeta Serrada",
+                "class": "weapons"
+            },
+            "WEAPON_SHOTGUN_SEMIAUTO": {
+                "hashName": "WEAPON_SHOTGUN_SEMIAUTO",
+                "damage": 1.0,
+                "customName": "Escopeta Semiautomática",
+                "class": "weapons"
+            },
+            "WEAPON_SNIPERRIFLE_CARCANO": {
+                "hashName": "WEAPON_SNIPERRIFLE_CARCANO",
+                "damage": 1.0,
+                "customName": "Rifle de Precisão Carcano",
+                "class": "weapons"
+            },
+            "WEAPON_SNIPERRIFLE_ROLLINGBLOCK": {
+                "hashName": "WEAPON_SNIPERRIFLE_ROLLINGBLOCK",
+                "damage": 1.0,
+                "customName": "Rifle de Precisão Rolling Block",
+                "class": "weapons"
+            },
+            "WEAPON_THROWN_BOLAS": {
+                "hashName": "WEAPON_THROWN_BOLAS",
+                "damage": 1.0,
+                "customName": "Bola de Neve",
+                "class": "hands"
+            },
+            "WEAPON_THROWN_DYNAMITE": {
+                "hashName": "WEAPON_THROWN_DYNAMITE",
+                "damage": 1.0,
+                "customName": "Dinamite",
+                "class": "explosives"
+            },
+            "WEAPON_THROWN_MOLOTOV": {
+                "hashName": "WEAPON_THROWN_MOLOTOV",
+                "damage": 1.0,
+                "customName": "Coquetel Molotov",
+                "class": "fire granades"
+            },
+            "WEAPON_THROWN_THROWING_KNIVES": {
+                "hashName": "WEAPON_THROWN_THROWING_KNIVES",
+                "damage": 1.0,
+                "customName": "Facas de Arremesso",
+                "class": "blades"
+            },
+            "WEAPON_THROWN_TOMAHAWK": {
+                "hashName": "WEAPON_THROWN_TOMAHAWK",
+                "damage": 1.0,
+                "customName": "Tomahawk",
+                "class": "blades"
+            },
+            "WEAPON_THROWN_TOMAHAWK_ANCIENT": {
+                "hashName": "WEAPON_THROWN_TOMAHAWK_ANCIENT",
+                "damage": 1.0,
+                "customName": "Tomahawk Antigo",
+                "class": "blades"
+            },
+
             "-842959696": {
                 "hashName": "-842959696",
                 "damage": 1.0,
@@ -1183,8 +1648,14 @@
             "hours": "[Hora]:"
         },
         "text3d": {
-            "bagInHands": "~b~[E]~w~ Para abrir a bolsa\n~b~[Z]~w~ Para soltar a bolsa\n~b~[Y]~w~ Para guardar a bolsa",
-            "bagInGroud": "~b~[E]~w~ Para abrir a bolsa\n~b~[U]~w~ Para pegar a bolsa\n~b~[Y]~w~ Para guardar a bolsa"
+            "fivem": {
+                "bagInHands": "~b~[G]~w~ Para abrir a bolsa\n~b~[Z]~w~ Para soltar a bolsa\n~b~[Seta para baixo]~w~ Para guardar a bolsa",
+                "bagInGroud": "~b~[G]~w~ Para abrir a bolsa\n~b~[Seta para cima]~w~ Para pegar a bolsa\n~b~[Seta para baixo]~w~ Para guardar a bolsa"
+            },
+            "redm": {
+                "bagInHands": "~o~[G]~q~ Para abrir a bolsa\n~o~[Z]~q~ Para soltar a bolsa\n~o~[Seta para baixo]~q~ Para guardar a bolsa",
+                "bagInGroud": "~o~[G]~q~ Para abrir a bolsa\n~o~[Seta para cima]~q~ Para pegar a bolsa\n~o~[Seta para baixo]~q~ Para guardar a bolsa"
+            }
         }
     },
     "languageENUS": {
@@ -1326,8 +1797,14 @@
             "hours": "[Hour]:"
         },
         "text3d": {
-            "bagInHands": "~b~[E]~w~ To open the bag\n~b~[Z]~w~ To drop the bag\n~b~[Y]~w~ To store the bag",
-            "bagInGroud": "~b~[E]~w~ To open the bag\n~b~[U]~w~ To get the bag\n~b~[Y]~w~ To store the bag"
+            "fivem": {
+                "bagInHands": "~b~[G]~w~ To open the bag\n~b~[Z]~w~ To drop the bag\n~b~[Arrow Down]~w~ To store the bag",
+                "bagInGroud": "~b~[G]~w~ To open the bag\n~b~[Arrow Up]~w~ To get the bag\n~b~[Arrow Down]~w~ To store the bag"
+            },
+            "redm": {
+                "bagInHands": "~o~[G]~q~ To open the bag\n~o~[Z]~q~ To drop the bag\\n~o~[Arrow Down]]~q~ To store the bag",
+                "bagInGroud": "~o~[G]~q~ To open the bag\n~o~[Arrow Up]~q~ To get the bag\n~o~[Arrow Down]]~q~ To store the bag"
+            }
         }
     }
 }
